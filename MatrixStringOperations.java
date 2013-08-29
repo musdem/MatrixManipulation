@@ -1,5 +1,3 @@
-package matrixManipulation;
-
 public class MatrixStringOperations
 {
 	public static double [][] stringToMatrix(String matrixString)//this will convert a string matrix into a double [][] matrix

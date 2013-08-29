@@ -1,5 +1,3 @@
-package matrixManipulation;
-
 public class MatrixOperations
 {
 	public static boolean echelonCheck(double [][] matrix)
