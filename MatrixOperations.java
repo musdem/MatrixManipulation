@@ -123,7 +123,7 @@ public class MatrixOperations
 		{
 			temp[i] = matrix[row1][i];
 			matrix[row1][i]=matrix[row2][i];
-			matrix[row2][i]=matrix[row1][i];
+			matrix[row2][i]=temp[i];
 		}
 		return matrix;
 	}
