@@ -1,3 +1,16 @@
+/* 
+ * when refering to the matrix array matrixx refers to the columns and matrixy refers to the rows in
+ * visual example:
+ * 1 2 3---matrixx = 0
+ * 4 5 6---matrixx = 1
+ * 7 8 9---matrixx = 2
+ * | | |___matrixy = 2
+ * | |_____matrixy = 1
+ * |_______matrixy = 0
+ */
+
+import java.math.*;
+
 public class MatrixOperations
 {
 	public static boolean echelonCheck(double [][] matrix)
@@ -87,6 +100,7 @@ public class MatrixOperations
 	{
 		int matrixx = matrix.length;
 		int matrixy = matrix[0].length;
+		int row = 0;
 		int column = 0;
 		while(!echelonCheck(matrix)&&column<matrixy&&!(matrixy>matrixx))
 		{
@@ -94,24 +108,35 @@ public class MatrixOperations
 			{
 				if(matrix[i][column]!=0)
 				{
-					matrixRowMulti(i,(1/matrix[i][column]),matrix);
+					matrixRowMulti(i,(1/matrix[i][column]),matrix);//this will make all leading values equal to 1 for easy row subtraction
 				}
 			}
 			for(int i=1+column;i<matrixx;i++)
 			{
 				if(leadingEntryPos(column,matrix)>leadingEntryPos(i,matrix))
 				{
-					matrixRowSwitch(column,i,matrix);
+					matrixRowSwitch(column,i,matrix);//this will properly organise the rows as to avoid unessisary row subtraction
 				}
 			}
 			for(int i=1+column;i<matrixx;i++)
 			{
 				if(matrix[i][column]!=0)
 				{
-					matrixRowsMultiAdd(i,column,-1,matrix);
+					matrixRowsMultiAdd(i,column,-1,matrix);//this will multiply a row by -1 and add it to another effectively subtracting the rows
 				}
 			}
 			column = column + 1;
+		}
+		while(row < matrixx)//this is to make any really small number equal to 0 to fix what I assume are issues with java maybe my algorithm
+		{
+			for(int i = 0;i<matrixy;i++)
+			{
+				if(matrix[row][i] < Math.pow(1,-12))
+				{
+					matrix[row][i] = 0;
+				}
+			}
+			row++;
 		}
 		return matrix;
 	}
