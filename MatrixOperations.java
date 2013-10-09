@@ -131,7 +131,7 @@ public class MatrixOperations
 		{
 			for(int i = 0;i<matrixy;i++)
 			{
-				if(matrix[row][i] < Math.pow(1,-12))
+				if(matrix[row][i] < Math.pow(1,-16))
 				{
 					matrix[row][i] = 0;
 				}
