@@ -100,7 +100,6 @@ public class MatrixOperations
 	{
 		int matrixx = matrix.length;
 		int matrixy = matrix[0].length;
-		int row = 0;
 		int column = 0;
 		while(!echelonCheck(matrix)&&column<matrixy&&!(matrixy>matrixx))
 		{
@@ -127,16 +126,19 @@ public class MatrixOperations
 			}
 			column = column + 1;
 		}
-		while(row < matrixx)//this is to make any really small number equal to 0 to fix what I assume are issues with java maybe my algorithm
+		matrix = matrixRound(matrix);
+		return matrix;
+	}
+	private static double [][] matrixRound(double [][] matrix)
+	{
+		int matrixx = matrix.length;
+		int matrixy = matrix[0].length;
+		for(int i = 0;i<matrixx;i++)//this is to make any really small number equal to 0 to fix what I assume are issues with java maybe my algorithm
 		{
-			for(int i = 0;i<matrixy;i++)
+			for(int j = 0;j<matrixy;j++)
 			{
-				if(matrix[row][i] < Math.pow(1,-16))
-				{
-					matrix[row][i] = 0;
-				}
+				matrix[i][j] = Math.round(matrix[i][j] * 100.0) / 100.0;
 			}
-			row++;
 		}
 		return matrix;
 	}
@@ -202,6 +204,7 @@ public class MatrixOperations
 				}
 			}
 		}
+		sum = matrixRound(sum);
 		return sum;
 	}
 }
