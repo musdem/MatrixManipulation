@@ -114,7 +114,7 @@ public class MatrixOperations
 			{
 				if(leadingEntryPos(column,matrix)>leadingEntryPos(i,matrix))
 				{
-					matrixRowSwitch(column,i,matrix);//this will properly organise the rows as to avoid unessisary row subtraction
+					matrixRowSwitch(column,i,matrix);//this will properly organise the rows as to avoid unnecessary row subtraction
 				}
 			}
 			for(int i=1+column;i<matrixx;i++)
