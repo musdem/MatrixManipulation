@@ -1,12 +1,14 @@
 /* 
  * when refering to the matrix array matrixx refers to the columns and matrixy refers to the rows in
  * visual example:
- * 1 2 3---matrixx = 0
- * 4 5 6---matrixx = 1
- * 7 8 9---matrixx = 2
- * | | |___matrixy = 2
- * | |_____matrixy = 1
- * |_______matrixy = 0
+ * 1 2 3---matrixx[0]
+ * 4 5 6---matrixx[1]
+ * 7 8 9---matrixx[2]
+ * | | |___matrixy[2]
+ * | |_____matrixy[1]
+ * |_______matrixy[0]
+ * matrix[0][0] = 1
+ * matrix[2][1] = 8
  */
 
 import java.math.*;
