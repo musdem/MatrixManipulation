@@ -135,7 +135,7 @@ public class MatrixOperations
 	{
 		int matrixx = matrix.length;
 		int matrixy = matrix[0].length;
-		for(int i = 0;i<matrixx;i++)//this is to make any really small number equal to 0 to fix what I assume are issues with java maybe my algorithm
+		for(int i = 0;i<matrixx;i++)//this will round and number to 2 decimal places to fix what I assume are issues with java maybe my algorithm
 		{
 			for(int j = 0;j<matrixy;j++)
 			{
